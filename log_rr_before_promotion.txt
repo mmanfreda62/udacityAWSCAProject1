@@ -1,0 +1,145 @@
+C:\Users\mmanf\OneDrive\Documents\Training\Udacity\Cloud Architect NanoDegree\Project1\extra
+λ ssh -i "udacitySecondayKeyPair.pem" ec2-user@ec2-54-202-179-53.us-west-2.compute.amazonaws.com
+The authenticity of host 'ec2-54-202-179-53.us-west-2.compute.amazonaws.com (54.202.179.53)' can't be established.
+ECDSA key fingerprint is SHA256:MhpkvbPdiR0j4HNrak8KuZMoT3MObafz3QOcuaCFFP4.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-54-202-179-53.us-west-2.compute.amazonaws.com,54.202.179.53' (ECDSA) to the list of known hosts.
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2018.03-release-notes/
+No packages needed for security; 2 packages available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-10-2-11-206 ~]$ mysql
+-bash: mysql: command not found
+[ec2-user@ip-10-2-11-206 ~]$ sudo yum install mysql
+Loaded plugins: priorities, update-motd, upgrade-helper
+Resolving Dependencies
+--> Running transaction check
+---> Package mysql.noarch 0:5.5-1.6.amzn1 will be installed
+--> Processing Dependency: mysql55 >= 5.5 for package: mysql-5.5-1.6.amzn1.noarch
+--> Running transaction check
+---> Package mysql55.x86_64 0:5.5.62-1.23.amzn1 will be installed
+--> Processing Dependency: real-mysql55-libs(x86-64) = 5.5.62-1.23.amzn1 for package: mysql55-5.5.62-1.23.amzn1.x86_64
+--> Processing Dependency: mysql-config for package: mysql55-5.5.62-1.23.amzn1.x86_64
+--> Running transaction check
+---> Package mysql-config.x86_64 0:5.5.62-1.23.amzn1 will be installed
+---> Package mysql55-libs.x86_64 0:5.5.62-1.23.amzn1 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+======================================================================================================== Package                 Arch              Version                        Repository               Size ========================================================================================================Installing:
+ mysql                   noarch            5.5-1.6.amzn1                  amzn-main               2.7 k Installing for dependencies:
+ mysql-config            x86_64            5.5.62-1.23.amzn1              amzn-updates             49 k  mysql55                 x86_64            5.5.62-1.23.amzn1              amzn-updates            7.5 M  mysql55-libs            x86_64            5.5.62-1.23.amzn1              amzn-updates            816 k
+
+Transaction Summary
+========================================================================================================Install  1 Package (+3 Dependent packages)
+
+Total download size: 8.3 M
+Installed size: 31 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/4): mysql-5.5-1.6.amzn1.noarch.rpm                                            | 2.7 kB  00:00:00
+(2/4): mysql-config-5.5.62-1.23.amzn1.x86_64.rpm                                 |  49 kB  00:00:00
+(3/4): mysql55-libs-5.5.62-1.23.amzn1.x86_64.rpm                                 | 816 kB  00:00:00
+(4/4): mysql55-5.5.62-1.23.amzn1.x86_64.rpm                                      | 7.5 MB  00:00:00
+--------------------------------------------------------------------------------------------------------Total                                                                    18 MB/s | 8.3 MB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : mysql55-libs-5.5.62-1.23.amzn1.x86_64                                                1/4
+  Installing : mysql-config-5.5.62-1.23.amzn1.x86_64                                                2/4
+  Installing : mysql55-5.5.62-1.23.amzn1.x86_64                                                     3/4
+  Installing : mysql-5.5-1.6.amzn1.noarch                                                           4/4
+  Verifying  : mysql-5.5-1.6.amzn1.noarch                                                           1/4
+  Verifying  : mysql-config-5.5.62-1.23.amzn1.x86_64                                                2/4
+  Verifying  : mysql55-libs-5.5.62-1.23.amzn1.x86_64                                                3/4
+  Verifying  : mysql55-5.5.62-1.23.amzn1.x86_64                                                     4/4
+
+Installed:
+  mysql.noarch 0:5.5-1.6.amzn1
+
+Dependency Installed:
+  mysql-config.x86_64 0:5.5.62-1.23.amzn1               mysql55.x86_64 0:5.5.62-1.23.amzn1
+  mysql55-libs.x86_64 0:5.5.62-1.23.amzn1
+
+Complete!
+[ec2-user@ip-10-2-11-206 ~]$ sudo yum update
+Loaded plugins: priorities, update-motd, upgrade-helper
+Resolving Dependencies
+--> Running transaction check
+---> Package tzdata.noarch 0:2019c-1.73.amzn1 will be updated
+---> Package tzdata.noarch 0:2020a-1.75.amzn1 will be an update
+---> Package tzdata-java.noarch 0:2019c-1.73.amzn1 will be updated
+---> Package tzdata-java.noarch 0:2020a-1.75.amzn1 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+======================================================================================================== Package                 Arch               Version                      Repository                Size ========================================================================================================Updating:
+ tzdata                  noarch             2020a-1.75.amzn1             amzn-updates             838 k  tzdata-java             noarch             2020a-1.75.amzn1             amzn-updates             231 k
+
+Transaction Summary
+========================================================================================================Upgrade  2 Packages
+
+Total download size: 1.0 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/2): tzdata-java-2020a-1.75.amzn1.noarch.rpm                                   | 231 kB  00:00:00
+(2/2): tzdata-2020a-1.75.amzn1.noarch.rpm                                        | 838 kB  00:00:00
+--------------------------------------------------------------------------------------------------------Total                                                                   3.7 MB/s | 1.0 MB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : tzdata-java-2020a-1.75.amzn1.noarch                                                  1/4
+  Updating   : tzdata-2020a-1.75.amzn1.noarch                                                       2/4
+  Cleanup    : tzdata-java-2019c-1.73.amzn1.noarch                                                  3/4
+  Cleanup    : tzdata-2019c-1.73.amzn1.noarch                                                       4/4
+  Verifying  : tzdata-2020a-1.75.amzn1.noarch                                                       1/4
+  Verifying  : tzdata-java-2020a-1.75.amzn1.noarch                                                  2/4
+  Verifying  : tzdata-java-2019c-1.73.amzn1.noarch                                                  3/4
+  Verifying  : tzdata-2019c-1.73.amzn1.noarch                                                       4/4
+
+Updated:
+  tzdata.noarch 0:2020a-1.75.amzn1                 tzdata-java.noarch 0:2020a-1.75.amzn1
+
+Complete!
+[ec2-user@ip-10-2-11-206 ~]$ mysql -h udarr-database-rr.c5occmyjcxu1.us-west-2.rds.amazonaws.com -P 330 6 --database=udaci ty --user=admin --password=ozQL6LdiaUmrDAStGrRL
+ERROR 1049 (42000): Unknown database 'ty'
+[ec2-user@ip-10-2-11-206 ~]$ mysql -h udarr-database-rr.c5occmyjcxu1.us-west-2.rds.amazonaws.com -P 330 6 --database=udacity --user=admin --password=ozQL6LdiaUmrDAStGrRL
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1179
+Server version: 8.0.20 Source distribution
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select * from orders;
++----------+-------------+-----------------------------+--------------+
+| order_id | name        | description                 | created_date |
++----------+-------------+-----------------------------+--------------+
+|        1 | BobOrder1   | Bob's order for new parts   | 2020-09-22   |
+|        2 | HarryOrder2 | Harry's order for new parts | 2020-09-22   |
+|        3 | JoeOrder3   | Joe's order for new parts   | 2020-09-22   |
++----------+-------------+-----------------------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql>     INSERT INTO orders
+    ->     ( name, description, created_date)
+    ->     VALUES
+    ->     ("NickOrder4", "Nick's order for new parts", NOW() );
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+mysql>

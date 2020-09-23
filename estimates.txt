@@ -1,0 +1,30 @@
+
+Assignment:
+Write a paragraph or two describing the achievable Recovery Time Objective (RTO) and Recovery Point Objective (RPO) for this Multi-AZ, multi-region database in terms of:
+
+    Minimum RTO for a single AZ outage
+    Minimum RTO for a single region outage
+    Minimum RPO for a single AZ outage
+    Minimum RPO for a single region outage
+
+ My Answer:
+
+ This will be the baseline for my disaster recovery plan for my new mutli-region database in my AWS account.  My database was created in the Northern Virginia us-east-1b region and AZ.   A read replica of the database was created in the Oregon  us-west-2a region and AZ.  
+
+"Recovery time objective (RTO) and recovery point objective (RPO) are two key metrics to consider when developing a DR plan. RTO represents how many hours it takes you to return to a working state after a disaster. RPO, which is also expressed in hours, represents how much data you could lose when a disaster happens. For example, an RPO of 1 hour means that you could lose up to 1 hour’s worth of data when a disaster occurs."  (from https://aws.amazon.com/blogs/database/implementing-a-disaster-recovery-strategy-with-amazon-rds/)
+
+ The Backup retention period for the database backups is 7 days.  The daily backup window start time is set to be 09:07 UTC and the duration is set to 0.5 hours.  The database currently is set to backup once every 24 hours, so the RPO for a total failure would be a maximum of 24 hours if a disaster were to occur. In a production environment we would increase the frequency of the backups to lower this number to anywhere from 4 to 6 hours most likely depending on the application.  Also the presence of the read replica database reduces the risk of a total failure significantly, but it is not zero.  The maintenance window on this database is set to Saturday at 06:46 UTC and the duration is 0.5 hours. 
+
+  The RTO represents the time it takes to get the database back to a working state after an interuption.  If there was a failure in the us-east region, the database read replica in the us-west region could be used to restore the database to the point where the interuption occurred.  If it were to take 20 minutes to backup and restore the database in the us-east region from the read replica in the us-west region and then it would take 5-10 minutes to restart the database then we could say the bare minimum could be 30 minutes, but that assumes everything happens immediately and quickly and the support staff has time to respond.  Depending on the application, I would set the RTO for this database to be 3 or 4 hours to make sure there is plenty of time to address the situation.  I would also have my staff practice these situations on a regular basis so they will know how to react when an issue occurs.  
+
+ In the environment I have created for project one, the achievable Recovery Time Object (RTO) for this multi-region database during a single AZ outage should be 3 hours.
+
+In the environment I have created for project one, the achievable Recovery Time Object (RTO) for this multi-region database during a single region outage should be 4 hours.
+
+ In the environment I have created for project one, the achievable Recovery Point Objective (RPO) for this multi-region database  during a single AZ outage should be 4 .
+
+ In the environment I have created for project one, the achievable Recovery Point Objective (RPO) for this multi-region database  during a single region outage should be  6.
+
+   
+
+
